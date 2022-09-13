@@ -4,10 +4,10 @@ namespace StudyingTasks
 {
     internal class Drone : FlyingObject
     {
-        public static double MovingTime = 10.0 / 60.0;
-        public static double HangingTime = 1.0 / 60.0;
-        public static int Speed = 60;
-        public static int MaxPath = 1000;
+        public const double MovingTime = 10.0 / 60.0;
+        public const double HangingTime = 1.0 / 60.0;
+        public const int Speed = 60;
+        public const int MaxPath = 1000;
 
         public Drone(Coordinate coordinate) : base(coordinate)
         {

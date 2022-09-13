@@ -9,8 +9,8 @@ namespace StudyingTasks
     internal class Bird : FlyingObject
     {
         //Constant value for MAX speed
-        public static int MaxSpeed = 20;
-        public static int MaxTime = 6;
+        public const int MaxSpeed = 20;
+        public const int MaxTime = 6;
 
         public Bird(Coordinate coordinate) : base(coordinate)
         {

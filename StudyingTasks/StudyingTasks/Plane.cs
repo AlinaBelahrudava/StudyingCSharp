@@ -4,14 +4,14 @@ namespace StudyingTasks
     internal class Plane : FlyingObject
     {
         //Constant value for start speed.
-        public static int StartSpeed = 200;
+        public const int StartSpeed = 200;
         //Max speed limit
-        public static int MaxSpeed = 900;
-        public static int SpeedChangeStep = 10;
-        public static int SpeedChangePath = 10;
+        public const int MaxSpeed = 900;
+        public const int SpeedChangeStep = 10;
+        public const int SpeedChangePath = 10;
         //plane can fly while speed can be excided to max value.
         //in other words this plane cannot fly with constant speed.
-        public static int MaxPath = (MaxSpeed - StartSpeed) / SpeedChangeStep * SpeedChangePath;
+        public const int MaxPath = (MaxSpeed - StartSpeed) / SpeedChangeStep * SpeedChangePath;
 
         public Plane(Coordinate coordinate) : base(coordinate)
         {
