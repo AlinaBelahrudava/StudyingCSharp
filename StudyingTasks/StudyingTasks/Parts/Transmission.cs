@@ -1,4 +1,6 @@
-﻿namespace Parts
+﻿using StudyingTasks.Exceptions;
+
+namespace Parts
 {
     public class Transmission
 
@@ -24,7 +26,14 @@
         public TransmissionType GetTransmissionType() => this.TransmissionType;
 
 
-        public void SetTransmissionsNumber(int transmissionsNumber) => this.TransmissionsNumber = transmissionsNumber;
+        public void SetTransmissionsNumber(int transmissionsNumber)
+        {
+            if (transmissionsNumber < 1)
+            {
+                throw new InitializationException("Incorrect data. Transmissions number cannot be less than 1");
+            }
+            this.TransmissionsNumber = transmissionsNumber;
+        }
 
 
         public int GetTransmissionNumber() => this.TransmissionsNumber;

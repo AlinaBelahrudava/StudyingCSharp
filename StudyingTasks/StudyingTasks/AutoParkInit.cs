@@ -106,11 +106,11 @@ namespace StudyingTasks
                 .SetCapacity(10000)
                 .Build();
 
-            AutoPark.Add(TransportFactory.CreateScooter(XiaomiEngine, XiaomiChassis, XiaomiTransmission, true));
-            AutoPark.Add(TransportFactory.CreateScooter(HondaScooterEngine, HondaChassis, HondaScooterTransmission, false));
-            AutoPark.Add(TransportFactory.CreateCar(MazdaEngine, MazdaChassis, MazdaTransmission, 10, 5));
-            AutoPark.Add(TransportFactory.CreateTruck(TruckEngine, TruckChassis, TruckTransmission, false));
-            AutoPark.Add(TransportFactory.CreateBus(BusEngine, BusChassis, BusTransmission, 30, 60, true));
+            AutoPark.Add(TransportFactory.CreateScooter(0,XiaomiEngine, XiaomiChassis, XiaomiTransmission, true));
+            AutoPark.Add(TransportFactory.CreateScooter(1,HondaScooterEngine, HondaChassis, HondaScooterTransmission, false));
+            AutoPark.Add(TransportFactory.CreateCar(2,MazdaEngine, MazdaChassis, MazdaTransmission, 10, 5, Entities.CarModel.Hatchback));
+            AutoPark.Add(TransportFactory.CreateTruck(3,TruckEngine, TruckChassis, TruckTransmission, false));
+            AutoPark.Add(TransportFactory.CreateBus(4, BusEngine, BusChassis, BusTransmission, 30, 60, true));
 
 
             return AutoPark;

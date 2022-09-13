@@ -31,6 +31,7 @@ namespace StudyingTasks.Builder
         public const string AirBagTag = "air_bags";
         public const string ProducerTag = "producer";
         public const string FoldingDesignTag = "folding_design";
+        public const string ModelTag = "model";
         public static void WriteFullInformationToXML(List<Transport> autopark, string fileName)
         {
             XDocument xDocument = CreateXmlWithFullInformation(autopark);
@@ -152,6 +153,8 @@ namespace StudyingTasks.Builder
                     xtransport.Add(xAirBagsNumber);
                     XElement xNumberOfSeats = new(SeatsTag, (transport as Car).GetNumberOfSeats());
                     xtransport.Add(xNumberOfSeats);
+                    XElement xModel = new(ModelTag, (transport as Car).GetModel());
+                    xtransport.Add(xModel);
 
                 }
                 else if (transport is Truck)

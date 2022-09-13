@@ -4,11 +4,13 @@ namespace Entity
 {
     public class Transport
     {
+        private int ID;
         private Engine Engine;
         private Chassis Chassis;
         private Transmission Transmission;
-        public Transport(Engine engine, Chassis chassis, Transmission transmission)
+        public Transport(int id, Engine engine, Chassis chassis, Transmission transmission)
         {
+            this.ID = id;
             SetEngine(engine);
             SetChassis(chassis);
             SetTransmission(transmission);
@@ -16,10 +18,12 @@ namespace Entity
 
         public override string ToString()
         {
-            return Engine.ToString() + ". " + Chassis.ToString() + ". " + Transmission.ToString() + ".";
+            return "ID: " + ID + ". " + Engine.ToString() + ". " + Chassis.ToString() + ". " + Transmission.ToString() + ".";
 
         }
 
+        public int GetID() => this.ID;
+        public void SetID(int id) => this.ID = id;
         protected void SetEngine(Engine engine) => this.Engine = engine ?? new();
 
         public Engine GetEngine() => this.Engine;

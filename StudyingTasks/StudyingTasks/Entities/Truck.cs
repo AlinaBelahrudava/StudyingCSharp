@@ -7,8 +7,8 @@ namespace Entity
     public class Truck : Transport
     {
         private bool IsRefregerator;
-        public Truck(Engine engine, Chassis chassis, Transmission transmission, bool isRefregerator)
-        : base(engine, chassis, transmission)
+        public Truck(int id, Engine engine, Chassis chassis, Transmission transmission, bool isRefregerator)
+        : base(id, engine, chassis, transmission)
         {
             this.IsRefregerator = isRefregerator;
         }
