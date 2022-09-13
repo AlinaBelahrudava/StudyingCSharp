@@ -5,10 +5,9 @@ namespace Entity
 {
     public class Bus : Transport
     {
-        private int NumberOfSeats { get; set; } = 0;
-        private int NumberOfPassangers { get; set; } = 0;
-
-        private bool IsWCAvailable { get; set; } = false;
+        private int NumberOfSeats;
+        private int NumberOfPassangers;
+        private bool IsWCAvailable;
         public Bus(Engine engine, Chassis chassis, Transmission transmission, int numberOfSeats,
             int numberOfPassangers, bool isWCAvailable)
         : base(engine, chassis, transmission)
@@ -17,6 +16,11 @@ namespace Entity
             this.NumberOfPassangers = numberOfPassangers;
             this.IsWCAvailable = isWCAvailable;
         }
+
+        public int GetNumberOfSeats() => this.NumberOfSeats;
+        public int GetNumberOfPassangers() => this.NumberOfPassangers;
+
+        public bool GetIsWCAvailable() => this.IsWCAvailable;
 
         public override string ToString()
         {

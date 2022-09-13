@@ -22,14 +22,14 @@ namespace Entity
 
         protected void SetEngine(Engine engine) => this.Engine = engine ?? new();
 
-        protected Engine GetEngine() => this.Engine;
+        public Engine GetEngine() => this.Engine;
         protected void SetChassis(Chassis chassis) => this.Chassis = chassis ?? new();
 
-        protected Chassis GetChassis() => this.Chassis;
+        public Chassis GetChassis() => this.Chassis;
 
         protected void SetTransmission(Transmission transmission) => this.Transmission = transmission ?? new();
 
-        protected Transmission GetTransmission() => this.Transmission;
+        public Transmission GetTransmission() => this.Transmission;
 
     }
 

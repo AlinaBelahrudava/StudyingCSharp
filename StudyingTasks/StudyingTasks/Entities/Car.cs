@@ -5,8 +5,8 @@ namespace Entity
 
     public class Car : Transport
     {
-        private int AirBagsNumber { get; set; } = 0;
-        private int NumberOfSeats { get; set; } = 0;
+        private int AirBagsNumber;
+        private int NumberOfSeats;
         public Car(Engine engine, Chassis chassis, Transmission transmission, int airBagsNumber, int numberOfSeats)
         : base(engine, chassis, transmission)
         {
@@ -14,6 +14,8 @@ namespace Entity
             this.NumberOfSeats = numberOfSeats;
         }
 
+        public int GetAirBagsNumber() => this.AirBagsNumber;
+        public int GetNumberOfSeats() => this.NumberOfSeats;
         public override string ToString()
         {
             return this.GetType().Name + ". " + base.ToString() + " Air bags number: " + AirBagsNumber
