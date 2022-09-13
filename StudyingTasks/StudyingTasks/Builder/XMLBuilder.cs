@@ -37,6 +37,7 @@ namespace StudyingTasks.Builder
             xDocument.Save(fileName);
         }
 
+        //group by transmission type using xpath
         public static void WriteGroupedByTransmissionInformationToXML(List<Transport> autopark, string fileName)
         {
             XDocument xDocument = CreateXmlWithFullInformation(autopark);
@@ -69,6 +70,36 @@ namespace StudyingTasks.Builder
                     }
                     xRoot.Add(xTransmissionType);
                 }
+            }
+            xTransmissionsGroupDoc.Save(fileName);
+        }
+
+        //group by transmission type using GroupBy
+        public static void WriteGroupedByTransmissionInformationToXMLUsingGroupBy(List<Transport> autopark, string fileName)
+        {
+            XDocument xDocument = CreateXmlWithFullInformation(autopark);
+            XDocument xTransmissionsGroupDoc = new();
+            XElement xRoot = new(TransmissionsTag);
+            xTransmissionsGroupDoc.Add(xRoot);
+            List<string> types = new();
+            XElement? xAutoPark = xDocument.Element(AutoparkTag);
+
+            if (null != xAutoPark)
+            {
+
+                IEnumerator<IGrouping<string, XElement>> enumerator = xAutoPark.Elements(TransportTag)
+                    .GroupBy(t => t.Element(TransmissionTag).Element(TypeTag).Value).GetEnumerator();
+
+                while (enumerator.MoveNext())
+                {
+                    XElement xTransmissionType = new(TransmissionTypeTag);
+                    XAttribute xName = new(NameAttribute, enumerator.Current.Key);
+                    xTransmissionType.Add(xName);
+                    foreach (XElement element in enumerator.Current)
+                    { xTransmissionType.Add(element); }
+                    xRoot.Add(xTransmissionType);
+                }
+
             }
             xTransmissionsGroupDoc.Save(fileName);
         }
