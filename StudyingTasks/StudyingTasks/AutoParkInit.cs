@@ -19,7 +19,7 @@ namespace StudyingTasks
 
             Engine HondaScooterEngine = new EngineBuilder()
                .SetPower(109.51)
-               .SetVolume(5.3)
+               .SetVolume(1)
                .SetEngineType(EngineType.Petrol)
                .SetSerialNumber("HONDA56DF678DSCOOTER")
                .Build();
