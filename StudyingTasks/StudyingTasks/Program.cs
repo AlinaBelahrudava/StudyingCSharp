@@ -46,10 +46,10 @@ class Program
             Console.WriteLine(ex.GetType().Name + " " + ex.Message);
         }
 
-       
+
         Transport car = TransportFactory.CreateCar(2, MazdaEngine, mazdaChassis, mazdaTransmission, 2, 5, CarModel.Coupe);
-        
-       
+
+
 
         List<Transport> transports = AutoParkInit.Init();
         AutoParkManager manager = new AutoParkManager(transports);
@@ -64,7 +64,7 @@ class Program
         }
         finally
         {
-            car.SetID(5);     
+            car.SetID(5);
         }
 
         try
@@ -87,6 +87,17 @@ class Program
         Transport carForUpdate = TransportFactory.CreateCar(5, MazdaEngine, mazdaChassis, mazdaTransmission, 2, 5, CarModel.Sedan);
         manager.UpdateAuto(carForUpdate);
         manager.RemoveAuto(5);
+
+        try
+        {
+            manager.GetAutoByParameter("engine", "unknown");
+        }
+        catch (GetAutoByParameterException ex)
+        {
+            Console.WriteLine(ex.GetType().Name + " " + ex.Message);
+        }
+        List<Transport> automatic = manager.GetAutoByParameter("transmission", TransmissionType.Automatic.ToString());
+        automatic.ForEach(t => Console.WriteLine(t.ToString()));
 
         Console.ReadKey();
     }

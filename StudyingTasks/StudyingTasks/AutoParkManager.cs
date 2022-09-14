@@ -1,10 +1,13 @@
 ﻿using Entity;
+using Parts;
 using StudyingTasks.Exceptions;
 
 namespace StudyingTasks
 {
     public class AutoParkManager
     {
+        public const string ID = "id";
+        public const string Transmission = "transmission";
         private List<Transport> Transport = new();
 
         public List<Transport> GetTransport() => this.Transport;
@@ -28,10 +31,27 @@ namespace StudyingTasks
             Transport.Add(transport);
         }
 
-        public void GetAutoByParameter(string parameter, string value)
+        public List<Transport> GetAutoByParameter(string parameter, string value)
         {
-           
-            //GetAutoByParameterException
+            switch (parameter.ToLower())
+            {
+                case ID:
+                    {
+                        return Transport.Where(t => t.GetID() == Convert.ToInt32(value)).ToList();
+                    }
+                case Transmission:
+                    {
+                        TransmissionType type;
+                        if (Enum.TryParse<TransmissionType>(value, out type)) ;
+                        {
+                            return Transport.Where(t => t.GetTransmission().GetTransmissionType() == type).ToList();
+                        }
+                    }
+                default:
+                    {
+                        throw new GetAutoByParameterException(String.Format("Unsupported parameter '{0}'.", parameter));
+                    }
+            }
         }
 
         public void UpdateAuto(Transport transport)
