@@ -1,4 +1,6 @@
-﻿namespace Parts
+﻿using StudyingTasks.Exceptions;
+
+namespace Parts
 {
     public class Chassis
     {
@@ -17,7 +19,14 @@
             SetCapacity(capacity);
         }
 
-        public void SetWheelNumber(int wheelNumber) => this.WheelNumber = wheelNumber;
+        public void SetWheelNumber(int wheelNumber)
+        {
+            if (wheelNumber < 2 || wheelNumber > 10)
+            {
+                throw new InitializationException(String.Format("Incorrect data. Wheels number cannot be {0}", wheelNumber));
+            }
+            this.WheelNumber = wheelNumber;
+        }
 
         public int GetWhellNumber() => this.WheelNumber;
 
@@ -25,7 +34,14 @@
 
         public string GetNumber() => this.Number ?? String.Empty;
 
-        public void SetCapacity(int capacity) => this.Capacity = capacity;
+        public void SetCapacity(int capacity)
+        {
+            if(0 >= capacity)
+            {
+               throw new InitializationException("Negative or Null capacity. Capasity should be positive value.");
+            }
+            this.Capacity = capacity;
+        }
 
         public int GetCapacity() => this.Capacity;
 

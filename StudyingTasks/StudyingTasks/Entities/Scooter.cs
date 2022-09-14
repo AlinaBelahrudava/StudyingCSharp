@@ -7,8 +7,8 @@ namespace Entity
     public class Scooter : Transport
     {
         private bool IsFoldingDesign;
-        public Scooter(Engine engine, Chassis chassis, Transmission transmission, bool isFoldingDesign)
-        : base(engine, chassis, transmission)
+        public Scooter(int id, Engine engine, Chassis chassis, Transmission transmission, bool isFoldingDesign)
+        : base(id, engine, chassis, transmission)
         {
             this.IsFoldingDesign = isFoldingDesign;
         }

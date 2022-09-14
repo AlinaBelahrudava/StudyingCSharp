@@ -8,9 +8,9 @@ namespace Entity
         private int NumberOfSeats;
         private int NumberOfPassangers;
         private bool IsWCAvailable;
-        public Bus(Engine engine, Chassis chassis, Transmission transmission, int numberOfSeats,
+        public Bus(int id, Engine engine, Chassis chassis, Transmission transmission, int numberOfSeats,
             int numberOfPassangers, bool isWCAvailable)
-        : base(engine, chassis, transmission)
+        : base(id, engine, chassis, transmission)
         {
             this.NumberOfSeats = numberOfSeats;
             this.NumberOfPassangers = numberOfPassangers;
